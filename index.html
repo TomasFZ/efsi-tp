@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP - 01</title>
+</head>
+<body>
+
+    <h1>Ingrese sus notas en distintas materias:</h1>
+    
+    
+    <p>Matemática:</p>
+    <form method="post">
+        <label for="fname" id="matematica">Matemática</label><br>
+        <input required type="number" id="notaMatematica" class="matematica" name="nota2" onkeyup="ValidarNota()">
+
+        <label for="fname" id="lengua">Lengua</label><br>
+        <input required type="number" id="notaLengua" class="lengua" name="nota2" onkeyup="ValidarNota()">
+
+        <label for="fname" id="efsi">EFSI</label><br>
+        <input required type="number" id="notaEfsi" name="nota3" class="efsi" onkeyup="ValidarNota()">
+
+        
+    </form>
+
+    <button onclick="MostrarPromedio()">Calcular Promedio Alumno</button>
+
+    <button onclick="ValidarNotaMasAlta()">Mostrar materia con mayor nota del alumno</button>
+
+    <div name="resultados" id="resultados" style="visibility:hidden">
+        <h1 >RESULTADOS</h1>
+        <h3 id="resultadoNumero"></h3>
+    </div>
+
+    <div name="resultadosDos" id="resultadosDos" style="visibility:hidden">
+        <p>Nota mas alta</p>
+        <p id="resultadoNotaMasAlta"></p>
+        <p>Materia de esa nota</p>
+        <p id="materiaDeEsaNota"></p>
+    </div>
+    <img src="https://img1.picmix.com/output/pic/normal/6/2/6/0/7830626_87d6d.gif" width="30%" id="imgInfo" alt="imagen">
+    <script src="funciones.js"></script>
+
+</body>
+</html>
