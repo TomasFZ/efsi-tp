@@ -1,25 +1,46 @@
 
 
-const notaMatematica = document.getElementById("notaMatematica");
-const notaLengua = document.getElementById("notaLengua");
-const notaEfsi = document.getElementById("notaEfsi");
 
-const vectorNotas = [notaMatematica, notaLengua, notaEfsi]
+const vectorNotas = document.getElementsByTagName("input")
 
+var vectorMateriasConLasNotasMasAlta = []
 
 function ValidarNotaMasAlta(){
     var nota = 0
+
+    let x = 0
     for(var i = 0; i < vectorNotas.length; i++){
-        if(nota < vectorNotas[i].value){
+        if(nota < Number(vectorNotas[i].value)){
             nota = vectorNotas[i].value
         }
+        
     }
+        
+for(var i =0;i < vectorNotas.length;i++){
+    if(Number(vectorNotas[i].value) == nota){
+        vectorMateriasConLasNotasMasAlta.push(vectorNotas[i].className)
+        document.getElementById("materiaDeEsaNota").innerHTML  += vectorMateriasConLasNotasMasAlta[x] + "\n"
+        document.getElementById(vectorNotas[i].className).style.color="blue"
+        x++
+    } //your so skibidi your so fanum tax sticking out your gyatt for the rizzler
+}
 
-    // nota.style.color='blue'
 
-    console.log(nota)
+   
+
+    
+
     document.getElementById("resultadosDos").style.visibility = "visible"
     document.getElementById("resultadoNotaMasAlta").innerHTML = nota
+    vectorMateriasConLasNotasMasAltas.forEach(m =>{
+        document.getElementById("materiaDeEsaNota").innerHTML = m + "\n"
+       
+    }) //hola soy un hacker mi nombre es hacker2009 y los voy a hackear en tres dos uno 0 ok han sido hackeados muajajajajja hola soy el hacker e hackeado la cuenta de danosqui
+    //uy soy dante recupere control hay un hacker hola hacker como te llamas
+    //bum hackeado hola soy un hacker mi nombre es... hacker2009 porque soy hacker y naci en 2009
+    //ahhH! hahhhhhhhhh (respira muy fuerte) hola volvi soy dante retome el control quiero que me presten mucha atencion NO LE DEN AL HACKER NO LE DIGAN BAJO NINGUN CONCEPTO EL-
+    //uh justo lo hackie aahora si muajajja ya veran .... hola soy dante me dicen la contraseña secretaa
+    
 }
 
 // function MostrarNotaMasAlta(){
