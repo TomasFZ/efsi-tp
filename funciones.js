@@ -6,6 +6,10 @@ const vectorNotas = document.getElementsByTagName("input")
 var vectorMateriasConLasNotasMasAlta = []
 
 function ValidarNotaMasAlta() {
+    if (ValidarDatos()){
+        return null
+    }
+    else{
     var nota = 0
     vectorMateriasConLasNotasMasAlta=[]
     let x = 0
@@ -30,7 +34,7 @@ function ValidarNotaMasAlta() {
 
 
     resultadosBorrar=document.getElementsByClassName("resultado")
-    console.log(resultadosBorrar)
+    
     for (var i = 0; i<resultadosBorrar.length;i++){
         resultadosBorrar[i].innerHTML=""
     }
@@ -48,7 +52,7 @@ function ValidarNotaMasAlta() {
     //ahhH! hahhhhhhhhh (respira muy fuerte) hola volvi soy dante retome el control quiero que me presten mucha atencion NO LE DEN AL HACKER NO LE DIGAN BAJO NINGUN CONCEPTO EL-
     //uh justo lo hackie aahora si muajajja ya veran .... hola soy dante me dicen la contraseña secretaa
 
-}
+}}
 
 // function MostrarNotaMasAlta(){
 //     document.getElementById("resultadoNotaMasAlta").innerHTML= ValidarNotaMasAlta()
@@ -61,19 +65,27 @@ function CalcularPromedio() {
 }
 
 function ValidarDatos() {
-    let anyEmpty
+    let anyEmpty = false
     const arrInputs = document.getElementsByTagName("input")
-    arrInputs.forEach(i => {
-        anyEmpty = i.value == NaN
-    });
-    if (anyEmpty) {
-        alert("todos los campos deben ser completados")
+    
+    i = 0
+    while(i<arrInputs.length && !anyEmpty){
+        anyEmpty=arrInputs[i].value==""
+        i++
     }
 
+    
+    if (anyEmpty) {
+        alert("todos los campos deben ser completados")
+        
+    }
+    console.log(anyEmpty)
+    return anyEmpty
 
 
 }
 function ValidarNota() {
+    
     var arrInputs = Array.prototype.slice.call(document.getElementsByTagName("input"))
     boton = document.getElementById("botonPromedio")
     arrInputs.forEach(i => {
@@ -95,6 +107,11 @@ function ValidarNota() {
 
 
 function MostrarPromedio() {
+
+    if (ValidarDatos()){
+        return null
+    }
+    else{
     imgInfo.src = "https://media1.tenor.com/m/RFZsuBVxm3QAAAAC/bh187-minions.gif"
     resultNumero = document.getElementById("resultadoNumero")
     imgInfo = document.getElementById("imgInfo")
@@ -115,7 +132,7 @@ function MostrarPromedio() {
     imgInfo.src = "https://i.pinimg.com/originals/2f/4e/b7/2f4eb7bd0ebe9bca45f46cc6f1664be7.gif"
 
 
-
+    }
 }
 
 
