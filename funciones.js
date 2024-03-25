@@ -64,18 +64,23 @@ function CalcularPromedio() {
     return ((Number(notaMatematica.value) + Number(notaLengua.value) + Number(notaEfsi.value)) / vectorNotas.length).toFixed(2)
 }
 
-function ValidarDatos() {
-    let anyEmpty = false
+
+function ValidarDatos(){
+    var anyEmpty = false
     const arrInputs = document.getElementsByTagName("input")
-    
-    i = 0
-    while(i<arrInputs.length && !anyEmpty){
-        anyEmpty=arrInputs[i].value==""
+    //console.log(arrInputs[2].value)
+    var i = 0
+    while(i<arrInputs.length && anyEmpty === false){
+        if(arrInputs[i].value == ""){
+            anyEmpty = true
+            
+            console.log("anyempty es true en " + arrInputs[i] + " con " + arrInputs[i].value)
+        }
         i++
     }
 
     
-    if (anyEmpty) {
+    if (anyEmpty == true) {
         alert("todos los campos deben ser completados")
         
     }
@@ -84,24 +89,33 @@ function ValidarDatos() {
 
 
 }
-function ValidarNota() {
-    
-    var arrInputs = Array.prototype.slice.call(document.getElementsByTagName("input"))
-    boton = document.getElementById("botonPromedio")
-    arrInputs.forEach(i => {
 
-        if (i.value == "") {
-            i.style.color = "black"
+function ValidarNota() {
+    hayAlgunoQueSePase=false
+    var arrInputs = document.getElementsByTagName("input")
+    boton = document.getElementById("botonPromedio")
+    boton2=document.getElementById("botonNotaMasAlta")
+
+    for(var i=0; i<arrInputs.length;i++){
+        if (arrInputs[i].value == "") {
+            arrInputs[i].style.color = "black"
         }
-        else if (i.value > 10 || i.value <= 0) {
-            i.style.color = 'red'
-            boton.setAttribute("disabled", "true")
+        else if (arrInputs[i].value > 10 || arrInputs[i].value <= 0) {
+            arrInputs[i].style.color = 'red'
+            hayAlgunoQueSePase=true
         }
         else {
-            i.style.color = 'green'
-            boton.removeAttribute("disabled")
+            arrInputs[i].style.color = 'green'
         }
-    });
+    }
+    if (hayAlgunoQueSePase){
+        boton.setAttribute("disabled","true")
+        boton2.setAttribute("disabled","true")
+    }
+    else{
+        boton.removeAttribute("disabled")
+        boton2.removeAttribute("disabled")
+    }
 }
 
 
