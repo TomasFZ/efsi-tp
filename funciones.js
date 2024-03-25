@@ -64,18 +64,22 @@ function CalcularPromedio() {
     return ((Number(notaMatematica.value) + Number(notaLengua.value) + Number(notaEfsi.value)) / vectorNotas.length).toFixed(2)
 }
 
-function ValidarDatos() {
-    let anyEmpty = false
+function ValidarDatos(){
+    var anyEmpty = false
     const arrInputs = document.getElementsByTagName("input")
-    
-    i = 0
-    while(i<arrInputs.length && !anyEmpty){
-        anyEmpty=arrInputs[i].value==""
+    //console.log(arrInputs[2].value)
+    var i = 0
+    while(i<arrInputs.length && anyEmpty === false){
+        if(arrInputs[i].value == ""){
+            anyEmpty = true
+            
+            console.log("anyempty es true en " + arrInputs[i] + " con " + arrInputs[i].value)
+        }
         i++
     }
 
     
-    if (anyEmpty) {
+    if (anyEmpty == true) {
         alert("todos los campos deben ser completados")
         
     }
@@ -108,7 +112,7 @@ function ValidarNota() {
 
 function MostrarPromedio() {
 
-    if (ValidarDatos()){
+    if (ValidarDatos() == true){
         return null
     }
     else{
