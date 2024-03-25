@@ -26,7 +26,7 @@
         
     </form>
 
-    <button onclick="MostrarPromedio()">Calcular Promedio Alumno</button>
+    <button onclick="MostrarPromedio()" id="botonPromedio">Calcular Promedio Alumno</button>
 
     <button onclick="ValidarNotaMasAlta()">Mostrar materia con mayor nota del alumno</button>
 
@@ -37,9 +37,9 @@
 
     <div name="resultadosDos" id="resultadosDos" style="visibility:hidden">
         <p>Nota mas alta</p>
-        <p id="resultadoNotaMasAlta"></p>
+        <p id="resultadoNotaMasAlta" class="resultado"></p>
         <p>Materia de esa nota</p>
-        <p id="materiaDeEsaNota"></p>
+        <p id="materiaDeEsaNota" class="resultado"></p>
     </div>
     <img src="https://img1.picmix.com/output/pic/normal/6/2/6/0/7830626_87d6d.gif" width="30%" id="imgInfo" alt="imagen">
     <script src="funciones.js"></script>
